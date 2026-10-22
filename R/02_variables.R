@@ -9,11 +9,12 @@ species <- read.csv("../outputs/tables/species_codes.csv")
 
 # IMPORT VARIABLES ####
 
-# the following .zip file needs to be downloaded into 'inputs' first
+# the below .zip file needs to be downloaded into 'inputs' first
 # from https://datadryad.org/dataset/doi:10.5061/dryad.rxwdbrv8x
-# data must be cited if used
-unzip("../inputs/doi_10_5061_dryad_rxwdbrv8x__v20210811.zip", list = TRUE)
-unzip("../inputs/doi_10_5061_dryad_rxwdbrv8x__v20210811.zip", files = "variables_Baquero_et_al.csv", exdir = "../inputs")
+# (Baquero et al. 2021)
+zip_file <- list.files("../inputs", pattern = "\\.zip$", full.names = TRUE)
+unzip(zip_file, list = TRUE)  # shows contents
+unzip(zip_file, files = "variables_Baquero_et_al.csv", exdir = "../inputs")
 vars <- read.csv("../inputs/variables_Baquero_et_al.csv")
 head(vars)
 unlink("../inputs/variables_Baquero_et_al.csv")
