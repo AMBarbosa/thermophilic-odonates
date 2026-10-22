@@ -13,7 +13,7 @@ library(modEvA)  # arrangePlots()
 dat_in <- read.csv("../inputs/species/species.csv")
 nrow(dat_in)
 head(dat_in)
-unique(dat_in$species)  # 8 species
+unique(dat_in$species)  # 6 species
 
 sampled_cells <- read.csv("../inputs/species/sampled_cells.csv")
 nrow(sampled_cells)
@@ -47,11 +47,11 @@ write.csv(species, "../outputs/tables/species_codes.csv", row.names = FALSE)
 # IMPORT AND CROP UTM GRID MAP ####
 
 utm <- vect("/vsicurl/https://github.com/AMBarbosa/Iberian-UTM-grid/raw/refs/heads/main/utm10_ib_crop_hires.fgb")
-head(utm)
+utm
 plot(utm)
 
 # add coordinate columns:
-crs(utm, describe = TRUE)
+crs(utm, proj = TRUE)
 coords <- terra::crds(terra::centroids(utm))
 head(coords)
 colnames(coords) <- c("lon", "lat")
