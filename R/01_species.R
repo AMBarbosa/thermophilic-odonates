@@ -11,6 +11,7 @@ library(modEvA)  # arrangePlots()
 # IMPORT SPECIES AND EFFORT DATA ####
 
 dat_in <- read.csv("../inputs/species/species.csv")
+# the sources for these data are listed in the paper and must be cited if used
 nrow(dat_in)
 head(dat_in)
 unique(dat_in$species)  # 6 species
